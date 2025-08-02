@@ -21,9 +21,25 @@ def show_data():
 
 def create_data(item):
     data = read_data()
-    data.append(item)
+    record = {
+        "id": uuid(data),
+        "task": item,
+        "status": "Progress"
+    }
+    data.append(record)
     write_data(data)
 
+def uuid(data):
+    #data = read_data()
+    #print(type(ids))
+    ids = []
+    new_id = 1
+    [ids.append(x["id"]) for x in data]
+    while new_id in ids:
+        new_id += 1
+    
+    return new_id
+
 if __name__ == '__main__':
-    create_data({"id": "5", "name": "Rahmat"})
+    create_data("Belajar argparse")
     show_data()
