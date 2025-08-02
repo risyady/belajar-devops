@@ -19,11 +19,11 @@ def write_data(data):
 def show_data():
     print(read_data())
 
-def create_data(item):
+def create_data(_task):
     data = read_data()
     record = {
         "id": uuid(data),
-        "task": item,
+        "task": _task,
         "status": "Progress"
     }
     data.append(record)
@@ -40,6 +40,22 @@ def uuid(data):
     
     return new_id
 
+def update_data(_id):    
+    datalist = read_data()
+    data = [x for x in datalist if x["id"] == _id]
+    datalist.remove(data[0])
+    data[0]["status"] = "Done"
+    datalist.append(data[0])
+    write_data(datalist)
+
+def remove_data(_id):
+    datalist = read_data()
+    data = [x for x in datalist if x["id"] == _id]
+    datalist.remove(data[0])
+    write_data(datalist)
+    
 if __name__ == '__main__':
-    create_data("Belajar argparse")
+    #create_data("Belajar argparse")
+    #update_data(1)
+    #remove_data(1)
     show_data()
