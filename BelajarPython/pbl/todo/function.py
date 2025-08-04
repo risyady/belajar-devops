@@ -31,6 +31,24 @@ def create_data(_task):
     write_data(data)
     print(record)
 
+def update_data(_id):
+    data = read_data()
+    item = [x for x in data if x["id"] == _id]
+    if item[0] in data:
+        data.remove(item[0])
+    item[0]["status"] = "Done"
+    data.append(item[0])
+    write_data(data)
+    print(item[0]["task"])
+
+def remove_data(_id):
+    data = read_data()
+    item = [x for x in data if x["id"] == _id]
+    if item[0] in data:
+        data.remove(item[0])
+    write_data(data)
+    print(item[0]["task"])
+
 def uuid(data):
     ids = []
     new_id = 1

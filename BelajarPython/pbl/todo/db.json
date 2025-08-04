@@ -2,6 +2,11 @@
     {
         "id": 1,
         "task": "Belajar Bahasa Arab",
-        "status": "Progress"
+        "status": "Done"
+    },
+    {
+        "id": 3,
+        "task": "Belajar Java",
+        "status": "Done"
     }
 ]
