@@ -1,4 +1,5 @@
 import argparse
+import function
 
 parser = argparse.ArgumentParser(description="To Do List CLI")
 subparsers = parser.add_subparsers(dest="command")
@@ -20,9 +21,11 @@ args.command = "list" if args.command == None else args.command
 
 match args.command:
     case "list":
-        print("Fungsi List")
+        print("List tugas")
+        function.show_data()
     case "add":
-        print("Fungsi Add")
+        print("Menambahkan tugas")
+        function.create_data(args.task)
     case "done":
         print("Fungsi Done")
     case "delete":
